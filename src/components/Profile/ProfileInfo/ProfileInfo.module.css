@@ -1,0 +1,15 @@
+.flower1 {
+  max-width: 250px;
+  max-height: 170px;
+  margin-right: 30px;
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+q {
+ quotes: "\201c" "\201d";
+}

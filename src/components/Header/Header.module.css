@@ -1,0 +1,16 @@
+.header {
+  grid-area: h;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  max-height: 200px;
+}
+
+.title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+
+}
