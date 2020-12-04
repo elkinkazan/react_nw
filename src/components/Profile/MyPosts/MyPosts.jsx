@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './MyPosts.module.css';
+import Post from './Post/Post'
 
 
 const MyPosts = (props) => {
@@ -8,12 +9,14 @@ let newElement = React.createRef();
 
 let onButtonClick = () => {
   props.addNewPost();
-}
+};
 
 let onButtonChange = (e) => {
   let text = e.target.value;
   props.updateNewText(text);
-}
+};
+
+let eachPost = props.info.map((post)=> <Post message={post.post} key={post.id} src={post.src} />);
 
         return (
             <div className={styles.posts}>
@@ -27,7 +30,7 @@ let onButtonChange = (e) => {
                         onClick={onButtonClick}>
                 Add Post</button>
               </div>
-              {props.info}
+              {eachPost}
             </div>
 
         );

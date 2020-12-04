@@ -8,7 +8,6 @@ const Post = (props) => {
               alt ='flower' className={styles.post__ava}/>
               <p>{props.message}</p>
             </div>
-
         );
 }
 

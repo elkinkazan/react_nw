@@ -1,5 +1,6 @@
 const ADD_NEW_POST = 'ADD_NEW_POST';
 const UPDATE_NEW_TEXT = 'UPDATE_NEW_TEXT';
+const SET_PROFILE = 'SET_PROFILE';
 
 let initialState = {
   postInfo : [
@@ -9,24 +10,35 @@ let initialState = {
     {id: 4, post: "Super", src: "https://images.pexels.com/photos/850359/pexels-photo-850359.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"},
     {id: 5, post: "druper messagea", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdUDY9ZV7M2VlERSwI6UUSRKmaP3qkRkZqtw&usqp=CAU"},
   ],
-  newText: ''
+  newText: '',
+  profile: null
 };
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEW_POST:
-      let newObj = {
-        id: 6,
-        post: state.newText,
-        src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdUDY9ZV7M2VlERSwI6UUSRKmaP3qkRkZqtw&usqp=CAU"
+      {
+          let newObj = {
+            id: 6,
+            post: state.newText,
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdUDY9ZV7M2VlERSwI6UUSRKmaP3qkRkZqtw&usqp=CAU"
+          }
+          return {
+            ...state,
+            postInfo:[...state.postInfo, newObj],
+            newText: ''
+          };
       }
-      state.postInfo.push(newObj);
-      state.newText = '';
-
-      return state;
     case UPDATE_NEW_TEXT:
-      state.newText = action.text;
-      return state;
+          return {
+            ...state,
+            newText: action.text
+          }
+    case SET_PROFILE:
+          return {
+            ...state,
+            profile: action.profile
+          }
     default:
       return state;
   }
@@ -34,5 +46,6 @@ const profileReducer = (state = initialState, action) => {
 
 export let addNewPostActionCreator = () => ({type: ADD_NEW_POST});
 export let updateNewTextActionCreator = (text) => ({type: UPDATE_NEW_TEXT, text: text});
+export let setProfile = (profile) => ({type: SET_PROFILE, profile})
 
 export default profileReducer;
