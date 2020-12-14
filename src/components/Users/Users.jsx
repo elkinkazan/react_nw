@@ -9,7 +9,8 @@ const Users = (props) => {
             status={user.status}
             id={user.id} followed={user.followed} toggle={props.toggle}
             setFollowing={props.setFollowing}
-            followingInProgress={props.followingInProgress}/>);
+            followingInProgress={props.followingInProgress} doUnfollow={props.doUnfollow}
+            followingIds={props.followingIds}/>);
   let pageCount = Math.ceil(props.count/ props.pageSize);
   let pageMax = pageCount > 20 ? 20 : pageCount;
   let pages = [];

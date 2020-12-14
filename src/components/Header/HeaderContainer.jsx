@@ -8,19 +8,25 @@ class HeaderContainer extends React.Component {
     componentDidMount = () => {
       axios.get('https://social-network.samuraijs.com/api/1.0/auth/me',
                 {withCredentials : true})
-           .then(response => {authorize(response.data.data)})
+           .then(response => {
+                if (response.data.resultCode === 0)
+                  {this.props.authorize(response.data.data)
+                   console.log(this.props)}
+                }
+           )
     }
 
     render() {
         return (
-          <Header isAuthorized = {this.props.isAuthorized}/>
+          <Header {...this.props}/>
         );
     }
 }
 
 let mapStateToProps = (state) => {
   return ({
-      isAuthorized: state.sAuthorized
+      isAuthorized: state.auth.isAuthorized,
+      login: state.auth.login
   })
 }
 

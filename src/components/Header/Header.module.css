@@ -10,7 +10,11 @@
 .title {
   font-family: 'Dancing Script', cursive;
   font-size: 2rem;
+  flex-grow: 3;
   margin: 0;
   padding: 0;
+}
 
+.link {
+  margin-right: 30px;
 }
